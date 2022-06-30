@@ -2,10 +2,10 @@ using System.Text.Json.Serialization;
 
 public class name
 {
-    [JsonPropertyName["first"]]
+    [JsonPropertyName("first")]
     public string First { get; set; }
 
-    [JsonPropertyName["last"]]
+    [JsonPropertyName("last")]
     public string Last { get; set; }
 
 }
