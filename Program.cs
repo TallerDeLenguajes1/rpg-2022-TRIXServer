@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿string archivoGanadores = "gaadores.csv;";
+string archivoJugadores = "jugadores.json";
+
+var random = new Random();
+
+
