@@ -24,51 +24,51 @@ public class datos
 
         var tipoPersonaje = new string[]
         {
-            "Scout",
-            "Soldier",
-            "Pyro",
-            "Daemon",
-            "Heavy",
-            "Engineer",
-            "Medic",
-            "Sniper",
-            "Spy"
+            "Escort",
+            "Soldado",
+            "Pirado",
+            "Demonio",
+            "Pesado",
+            "Ingeniero",
+            "Medico",
+            "Francotirador",
+            "Espia"
         };
 
         var aliasPersonaje = new string[]
         {
-            "Red Reaper",
-            "Gunner",
-            "Doomsday",
-            "Dark Sword",
-            "Insidious",
-            "God's Punisher",
-            "War Dog",
-            "Iron Hand",
-            "Blood Star",
-            "Atomic Arsenic",
-            "Atomic Apple",
-            "Purple Sun",
-            "Anger",
-            "Guts Destructor",
-            "Ego Monster"
+            "Pala Roja",
+            "Chicle",
+            "Peliador",
+            "Pantalla",
+            "Negruzco",
+            "Diosito",
+            "Perro",
+            "Manitas",
+            "Estrellita",
+            "Bicho de Luz",
+            "Manzana Mordida",
+            "El Sodero",
+            "Chofer",
+            "Paracaido",
+            "Evo Zurdito"
         };
 
-        int nombreRandom = random.Next(0, dataNames.Results.Count());
         tipo = tipoPersonaje[random.Next(0, tipoPersonaje.Length)];
-        nombre = $"{dataNames.Results[nombreRandom]} {dataNames.Results[nombreRandom].Name.Last}";
+        int rootNamesRandom = random.Next(0, dataNames.Results.Count());
+        nombre = $"{dataNames.Results[rootNamesRandom].Name.First} {dataNames.Results[rootNamesRandom].Name.Last}";
         alias = aliasPersonaje[random.Next(0, aliasPersonaje.Length)];
-        var fecha = new DateOnly(random.Next(1723, 2023), random.Next(1, 13), random.Next(1, 29));
-        fechaNacimiento = Convert.ToString(fecha);
-        edad = DateTime.Now.Year - fecha.Year;
-        if (fecha.Month > DateTime.Now.Month)
+        var fechaRandom = new DateOnly(random.Next(1723, 2023), random.Next(1, 13), random.Next(1, 29));
+        fechaNacimiento = Convert.ToString(fechaRandom);
+        edad = DateTime.Now.Year - fechaRandom.Year;
+        if (fechaRandom.Month > DateTime.Now.Month)
         {
             edad--;
 
         }
         else
         {
-            if (fecha.Month == DateTime.Now.Month && fecha.Day > DateTime.Now.Day)
+            if (fechaRandom.Month == DateTime.Now.Month && fechaRandom.Day > DateTime.Now.Day)
             {
                 edad--;
 
