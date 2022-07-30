@@ -1,0 +1,172 @@
+[
+    {
+        "DataDatos": {
+            "Tipo": "Demonio",
+            "Nombre": "Beverley Lambert",
+            "Alias": "Chofer",
+            "FechaNacimiento": "25/5/1993",
+            "Edad": 29,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 3,
+            "Destreza": 1,
+            "Fuerza": 9,
+            "Nivel": 3,
+            "Armadura": 8
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Espia",
+            "Nombre": "Thomas Fleming",
+            "Alias": "Diosito",
+            "FechaNacimiento": "6/12/1936",
+            "Edad": 85,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 8,
+            "Destreza": 5,
+            "Fuerza": 11,
+            "Nivel": 10,
+            "Armadura": 5
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Soldado",
+            "Nombre": "Elif Evliyao\u011Flu",
+            "Alias": "El Sodero",
+            "FechaNacimiento": "24/9/1947",
+            "Edad": 74,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 3,
+            "Destreza": 4,
+            "Fuerza": 7,
+            "Nivel": 8,
+            "Armadura": 8
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Soldado",
+            "Nombre": "Virginia Gallegos",
+            "Alias": "Peliador",
+            "FechaNacimiento": "21/10/1821",
+            "Edad": 200,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 1,
+            "Destreza": 1,
+            "Fuerza": 7,
+            "Nivel": 3,
+            "Armadura": 9
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Pirado",
+            "Nombre": "Thomas Fleming",
+            "Alias": "Perro",
+            "FechaNacimiento": "19/6/1776",
+            "Edad": 246,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 1,
+            "Destreza": 5,
+            "Fuerza": 4,
+            "Nivel": 1,
+            "Armadura": 3
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Ingeniero",
+            "Nombre": "Olivia Kauppila",
+            "Alias": "Estrellita",
+            "FechaNacimiento": "20/9/1988",
+            "Edad": 33,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 7,
+            "Destreza": 1,
+            "Fuerza": 5,
+            "Nivel": 1,
+            "Armadura": 2
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Pesado",
+            "Nombre": "Hadrien Laurent",
+            "Alias": "Estrellita",
+            "FechaNacimiento": "7/11/1933",
+            "Edad": 88,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 3,
+            "Destreza": 1,
+            "Fuerza": 7,
+            "Nivel": 1,
+            "Armadura": 10
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Escort",
+            "Nombre": "Beverley Lambert",
+            "Alias": "Manzana Mordida",
+            "FechaNacimiento": "1/3/1736",
+            "Edad": 286,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 9,
+            "Destreza": 4,
+            "Fuerza": 9,
+            "Nivel": 10,
+            "Armadura": 10
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Ingeniero",
+            "Nombre": "Olivia Kauppila",
+            "Alias": "El Sodero",
+            "FechaNacimiento": "14/10/1766",
+            "Edad": 255,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 8,
+            "Destreza": 1,
+            "Fuerza": 5,
+            "Nivel": 5,
+            "Armadura": 6
+        }
+    },
+    {
+        "DataDatos": {
+            "Tipo": "Medico",
+            "Nombre": "Thea Roberts",
+            "Alias": "Chofer",
+            "FechaNacimiento": "2/11/1987",
+            "Edad": 34,
+            "Salud": 100
+        },
+        "DataCaracteristicas": {
+            "Velocidad": 10,
+            "Destreza": 5,
+            "Fuerza": 9,
+            "Nivel": 4,
+            "Armadura": 9
+        }
+    }
+]
