@@ -51,7 +51,7 @@ do
             System.Console.Write("Elije una opcion: ");
             char flagGuardar = char.ToUpper(Console.ReadKey().KeyChar);
             System.Console.WriteLine();
-            functions.eleccionPelea(archivoGanadores, random, flagGuardar, archivoJugadores, names);
+            functions.enfrentamiento(archivoGanadores, random, flagGuardar, archivoJugadores, names);
             
         }
     }

@@ -33,25 +33,27 @@ public class datos
             "Medico",
             "Francotirador",
             "Espia"
+
         };
 
         var aliasPersonaje = new string[]
         {
-            "Pala Roja",
-            "Chicle",
-            "Peliador",
-            "Pantalla",
-            "Negruzco",
-            "Diosito",
-            "Perro",
-            "Manitas",
-            "Estrellita",
-            "Bicho de Luz",
-            "Manzana Mordida",
-            "El Sodero",
-            "Chofer",
+            "Frutillo",
+            "Chiclo",
+            "Papayo",
+            "Pantallo",
+            "Negruzca",
+            "Diosite",
+            "Perre",
+            "Manites",
+            "Estrellito",
+            "Bichite",
+            "Manzane",
+            "Sodera",
+            "Chofera",
             "Paracaido",
-            "Evo Zurdito"
+            "Zurdite"
+            
         };
 
         tipo = tipoPersonaje[random.Next(0, tipoPersonaje.Length)];
