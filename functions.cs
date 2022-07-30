@@ -224,7 +224,7 @@ public class functions
             {
 
                 Console.Clear();
-                System.Console.WriteLine("--\tPELEANDO");
+                System.Console.WriteLine($"--\tPELEANDO RONDA {i + 1}");
                 System.Console.WriteLine();
 
                 processPelea(dataListaPersonajes[1], dataListaPersonajes[0]);
@@ -334,6 +334,7 @@ public class functions
             string texto = $"Nombre: {dataListaPersonajes[0].DataDatos.Nombre}, Apodo: {dataListaPersonajes[0].DataDatos.Alias}, Tipo de personaje: {dataListaPersonajes[0].DataDatos.Tipo}, Fecha de nacimiento: {dataListaPersonajes[0].DataDatos.FechaNacimiento}, Momento en el que se llevó la batalla: {DateTime.Now}";
             escribir.WriteLine(texto);
             escribir.Close();
+            char continuar = Console.ReadKey().KeyChar;
     }
 
     public static void processPelea(personaje dataAtacante, personaje dataDefensor)

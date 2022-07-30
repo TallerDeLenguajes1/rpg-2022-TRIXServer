@@ -12,13 +12,14 @@ do
     System.Console.Clear();
     System.Console.WriteLine("--\tRPG");
     System.Console.WriteLine();
-    System.Console.WriteLine(" L - Lista de ganadores");
-    System.Console.WriteLine(" P - Pelea");
-    System.Console.WriteLine(" F - Finalizar");
+    System.Console.WriteLine(" L - Listado de ganadores");
+    System.Console.WriteLine(" E - Enfrentamientos");
+    System.Console.WriteLine();
+    System.Console.WriteLine(" S - Salir");
     System.Console.WriteLine();
     System.Console.WriteLine("--");
     System.Console.WriteLine();
-    System.Console.Write("Elija una opcion: ");
+    System.Console.Write("Elije una opcion: ");
     char flagInicio = char.ToUpper(Console.ReadKey().KeyChar);
     System.Console.WriteLine();
 
@@ -29,26 +30,28 @@ do
     }
     else
     {
-        if (flagInicio == 'F')
+        if (flagInicio == 'S')
         {
+            Console.Clear();
             break;
 
         }
         else
         {
             Console.Clear();
-            System.Console.WriteLine("--\tPELEA");
+            System.Console.WriteLine("--\tENFRENTAMIENTOS");
             System.Console.WriteLine();
-            System.Console.WriteLine(" Guardar la informacion de los luchadores?");
-            System.Console.WriteLine(" S - SI");
-            System.Console.WriteLine(" N - NO");
+            System.Console.WriteLine(" Guardar informacion de los luchadores?");
+            System.Console.WriteLine();
+            System.Console.WriteLine(" S - Si");
+            System.Console.WriteLine(" N - No");
             System.Console.WriteLine();
             System.Console.WriteLine("--");
             System.Console.WriteLine();
-            System.Console.Write("Elija una opcion: ");
-            char opcionGuardar = char.ToUpper(Console.ReadKey().KeyChar);
+            System.Console.Write("Elije una opcion: ");
+            char flagGuardar = char.ToUpper(Console.ReadKey().KeyChar);
             System.Console.WriteLine();
-            functions.eleccionPelea(archivoGanadores, random, opcionGuardar, archivoJugadores, names);
+            functions.eleccionPelea(archivoGanadores, random, flagGuardar, archivoJugadores, names);
             
         }
     }
