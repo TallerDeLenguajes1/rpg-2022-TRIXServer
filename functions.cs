@@ -49,6 +49,7 @@ public class functions
         var archivoRead = new StreamReader(File.Open(dataNombreArchivo, FileMode.Open));
         System.Console.WriteLine($"{archivoRead.ReadToEnd()}");
         archivoRead.Close();
+        string leer = Console.ReadLine();
 
     }
 
@@ -204,6 +205,7 @@ public class functions
                 if (dataListaPersonajes[1].DataDatos.Salud <= 0)
                 {
                     break;
+
                 }
 
                 processPelea(dataListaPersonajes[0], dataListaPersonajes[1]);
@@ -213,6 +215,7 @@ public class functions
                 if (dataListaPersonajes[0].DataDatos.Salud <= 0)
                 {
                     break;
+
                 }
 
                 if (i == 2)
