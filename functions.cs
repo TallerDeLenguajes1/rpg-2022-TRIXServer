@@ -189,12 +189,109 @@ public class functions
 
             }
 
+            System.Console.WriteLine("Presione una tecla para comenzar!");
+            char flagPresione = Console.ReadKey().KeyChar;
+            System.Console.WriteLine();
+            System.Console.WriteLine("--\tPeleando");
+            for (int i = 0; i < 3; i++)
+            {
+                char flagContinuar;
+
+                processPelea(dataListaPersonajes[1], dataListaPersonajes[0]);
+                System.Console.WriteLine("Presione una tecla para continuar");
+                flagContinuar = Console.ReadKey().KeyChar;
+
+                if (dataListaPersonajes[1].DataDatos.Salud <= 0)
+                {
+                    break;
+                }
+
+                processPelea(dataListaPersonajes[0], dataListaPersonajes[1]);
+                System.Console.WriteLine("Presione una tecla para continuar");
+                flagContinuar = Console.ReadKey().KeyChar;
+
+                if (dataListaPersonajes[0].DataDatos.Salud <= 0)
+                {
+                    break;
+                }
+
+                if (i == 2)
+                {
+                    System.Console.WriteLine("Fin de la pelea!");
+
+                }
+                
+            }
+
+            if (dataListaPersonajes[0].DataDatos.Salud == dataListaPersonajes[1].DataDatos.Salud)
+            {
+                dataCantidadEmpates = 1;
+
+            }
+            else
+            {
+                if (dataListaPersonajes[0].DataDatos.Salud < dataListaPersonajes[1].DataDatos.Salud)
+                {
+                    dataListaPersonajes.RemoveAt(0);
+
+                }
+                else
+                {
+                    dataListaPersonajes.RemoveAt(1);
+
+                }
+
+                foreach (var item in dataListaPersonajes)
+                {
+                    System.Console.WriteLine($"EL GANADOR DE LA PELEA: {item.DataDatos.Nombre} {item.DataDatos.Alias}");
+                    item.DataDatos.Salud = 100;
+                    int randomBonus = dataRandom.Next(2);
+                    float bonus = 0;
+                    if (randomBonus == 0)
+                    {
+                        bonus = 10;
+                        item.DataDatos.Salud += Convert.ToInt32(bonus);
+                        System.Console.WriteLine($" {item.DataDatos.Alias} obtuvo {bonus} mas de salud");
+
+                    }
+                    else
+                    {
+                        bonus = dataRandom.Next(5, 11);
+                        item.DataCaracteristicas.Fuerza += Convert.ToInt32(bonus / item.DataCaracteristicas.Fuerza);
+                        System.Console.WriteLine($" {item.DataDatos.Alias} obtuvo {bonus}% de fuerza");
+
+                    }
+                }
+                dataCantidadEmpates = 0;
+
+            }
+            dataCantidadPeleas--;
 
         }
+
     }
 
     public static void winPelea(List<personaje> dataListaPersonajes, string dataArchivoGanadores)
     {
+
+    }
+
+    public static void processPelea(personaje dataAtacante, personaje dataDefensor)
+    {
+        System.Console.WriteLine($"Atacante:\t{dataAtacante.DataDatos.Nombre} {dataAtacante.DataDatos.Alias}");
+        System.Console.WriteLine($"\tDefensor:\t{dataDefensor.DataDatos.Nombre} {dataDefensor.DataDatos.Alias}");
+        var random = new Random();
+
+        float poderDisparo = dataAtacante.DataCaracteristicas.Destreza * dataAtacante.DataCaracteristicas.Fuerza * dataAtacante.DataCaracteristicas.Nivel;
+        float efectividadDisparo = random.Next(1, 101);
+        float valorAtaque = poderDisparo * efectividadDisparo;
+        float poderDefensa = dataDefensor.DataCaracteristicas.Armadura * dataDefensor.DataCaracteristicas.Velocidad;
+        float maximoDanio = 50000;
+        int danioProvocado = Convert.ToInt32((((valorAtaque * efectividadDisparo) - poderDefensa) / maximoDanio) * 5);
+
+        System.Console.WriteLine($"Danio provocado de {dataAtacante.DataDatos.Alias}: {danioProvocado}");
+        dataDefensor.DataDatos.Salud -= danioProvocado;
+        System.Console.WriteLine($"Salud de {dataDefensor.DataDatos.Alias}: {dataDefensor.DataDatos.Salud}");;
 
     }
 
