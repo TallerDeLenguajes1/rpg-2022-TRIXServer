@@ -19,7 +19,7 @@ public class result
 
 public class rootNames 
 {
-    [JsonPropertyName("result")]
+    [JsonPropertyName("results")]
     public List<result> Results { get; set; }
     
 }

@@ -23,7 +23,7 @@ public class functions
                         using (StreamReader objReader = new StreamReader(strReader))
                         {
                             string contenidoJson = objReader.ReadToEnd();
-                            dataNames = JsonSerializer.Deserialize<rootNames>(contenidoJson);
+                            dataNames = JsonSerializer.Deserialize <rootNames> (contenidoJson);
 
                         } 
 
@@ -46,10 +46,17 @@ public class functions
 
     public static void leerArchivo(string dataNombreArchivo)
     {
-        var archivoRead = new StreamReader(File.Open(dataNombreArchivo, FileMode.Open));
-        System.Console.WriteLine($"{archivoRead.ReadToEnd()}");
+        var archivoRead = new StreamReader(File.Open(dataNombreArchivo, FileMode.OpenOrCreate));
+        Console.Clear();
+        System.Console.WriteLine("--\tLISTADO DE GANADORES");
+        System.Console.WriteLine();
+        System.Console.WriteLine($" {archivoRead.ReadToEnd()}");
+        System.Console.WriteLine();
+        System.Console.WriteLine("--");
+        System.Console.WriteLine();
+        System.Console.WriteLine("Presione una tecla...");
+        char flagTecla = char.ToUpper(Console.ReadKey().KeyChar);
         archivoRead.Close();
-        string leer = Console.ReadLine();
 
     }
 
@@ -58,8 +65,7 @@ public class functions
         var listaPersonajes = new List<personaje>();
         personaje personaje;
 
-        System.Console.WriteLine("--\tEleccion Personaje");
-        System.Console.WriteLine("--");
+        Console.Clear();
 
         personaje = setPersonaje(dataArchivoJugadores, dataNames);
 
@@ -104,7 +110,15 @@ public class functions
     {
         personaje personaje;
 
-        System.Console.Write("Crear o elegir personaje (C - Crear | E - Elegir): ");
+        System.Console.WriteLine("--\tELECCION DEL PERSONAJE");
+        System.Console.WriteLine();
+        System.Console.WriteLine(" Crear o elegir personaje");
+        System.Console.WriteLine(" C - Crear");
+        System.Console.WriteLine(" E - Elegir");
+        System.Console.WriteLine();
+        System.Console.WriteLine("--");
+        System.Console.WriteLine();
+        System.Console.Write("Elija una opcion: ");
         char flagElegir = char.ToUpper(Console.ReadKey().KeyChar);
         System.Console.WriteLine();
         if (flagElegir == 'E')
@@ -114,25 +128,28 @@ public class functions
 
             if (listaJugadoresDeserializada.Count > 0)
             {
-                System.Console.WriteLine("--\tPersonajes Guardados");
-                System.Console.WriteLine("--");
+                Console.Clear();
+                System.Console.WriteLine("--\tPERSONAJES GUARDADOS");
+                System.Console.WriteLine();
                 foreach (var item in listaJugadoresDeserializada)
                 {
+                    System.Console.WriteLine("--");
                     System.Console.WriteLine($" Nombre:\t{item.DataDatos.Nombre}");
-                    System.Console.WriteLine($" Alias:\t{item.DataDatos.Alias}");
-                    System.Console.WriteLine($" Tipo:\t{item.DataDatos.Tipo}");
-                    System.Console.WriteLine($" Fecha de Nacimiento:\t{item.DataDatos.FechaNacimiento}");
-                    System.Console.WriteLine($" Edad:\t{item.DataDatos.Edad}");
-                    System.Console.WriteLine($" Salud:\t{item.DataDatos.Salud}");
+                    System.Console.WriteLine($" Alias:\t\t{item.DataDatos.Alias}");
+                    System.Console.WriteLine($" Tipo:\t\t{item.DataDatos.Tipo}");
+                    System.Console.WriteLine($" Fech. Nac.:\t{item.DataDatos.FechaNacimiento}");
+                    System.Console.WriteLine($" Edad:\t\t{item.DataDatos.Edad}");
+                    System.Console.WriteLine($" Salud:\t\t{item.DataDatos.Salud}");
                     System.Console.WriteLine($" Velocidad:\t{item.DataCaracteristicas.Velocidad}");
                     System.Console.WriteLine($" Destreza:\t{item.DataCaracteristicas.Destreza}");
                     System.Console.WriteLine($" Fuerza:\t{item.DataCaracteristicas.Fuerza}");
-                    System.Console.WriteLine($" Nivel:\t{item.DataCaracteristicas.Nivel}");
+                    System.Console.WriteLine($" Nivel:\t\t{item.DataCaracteristicas.Nivel}");
                     System.Console.WriteLine($" Armadura:\t{item.DataCaracteristicas.Armadura}");
                     System.Console.WriteLine("--");
 
                 }
 
+                System.Console.WriteLine();
                 System.Console.WriteLine($"Elija entre 1 y {listaJugadoresDeserializada.Count}");
                 int eleccionPersonaje = Convert.ToInt32(Console.ReadLine());
                 personaje = listaJugadoresDeserializada[eleccionPersonaje - 1];
@@ -276,7 +293,23 @@ public class functions
 
     public static void winPelea(List<personaje> dataListaPersonajes, string dataArchivoGanadores)
     {
+        Console.WriteLine("\n//--------------------Ganador definitivo--------------------//"); //Muestro al personaje que logró sobrevivir
+            Console.WriteLine($"Nombre del personaje: {dataListaPersonajes[0].DataDatos.Nombre}");
+            Console.WriteLine($"Apodo del personaje: {dataListaPersonajes[0].DataDatos.Alias}");
+            Console.WriteLine($"Tipo de personaje: {dataListaPersonajes[0].DataDatos.Tipo}");
+            Console.WriteLine($"Fecha de nacimiento: {dataListaPersonajes[0].DataDatos.FechaNacimiento}");
+            Console.WriteLine($"Edad: {dataListaPersonajes[0].DataDatos.Edad}");
+            Console.WriteLine($"Salud: {dataListaPersonajes[0].DataDatos.Salud}");
+            Console.WriteLine($"Velocidad: {dataListaPersonajes[0].DataCaracteristicas.Velocidad}");
+            Console.WriteLine($"Destreza: {dataListaPersonajes[0].DataCaracteristicas.Destreza}");
+            Console.WriteLine($"Fuerza: {dataListaPersonajes[0].DataCaracteristicas.Fuerza}");
+            Console.WriteLine($"Nivel: {dataListaPersonajes[0].DataCaracteristicas.Nivel}");
+            Console.WriteLine($"Armadura: {dataListaPersonajes[0].DataCaracteristicas.Armadura}");
 
+            var escribir = new StreamWriter(File.Open(dataArchivoGanadores, FileMode.Append));
+            string texto = $"Nombre: {dataListaPersonajes[0].DataDatos.Nombre}, Apodo: {dataListaPersonajes[0].DataDatos.Alias}, Tipo de personaje: {dataListaPersonajes[0].DataDatos.Tipo}, Fecha de nacimiento: {dataListaPersonajes[0].DataDatos.FechaNacimiento}, Momento en el que se llevó la batalla: {DateTime.Now}";
+            escribir.WriteLine(texto);
+            escribir.Close();
     }
 
     public static void processPelea(personaje dataAtacante, personaje dataDefensor)
