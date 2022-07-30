@@ -37,6 +37,7 @@ do
             System.Console.Write("Guardar la informacion de los luchadores (S - SI | N - NO): ");
             char opcionGuardar = char.ToUpper(Console.ReadKey().KeyChar);
             System.Console.WriteLine();
+            functions.eleccionPelea(archivoGanadores, random, opcionGuardar, archivoJugadores, names);
             
         }
     }
