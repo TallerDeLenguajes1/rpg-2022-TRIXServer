@@ -50,7 +50,7 @@ public class functions
         Console.Clear();
         System.Console.WriteLine("--\tLISTADO DE GANADORES");
         System.Console.WriteLine();
-        System.Console.WriteLine($" {archivoRead.ReadToEnd()}");
+        System.Console.WriteLine($"{archivoRead.ReadToEnd()}");
         System.Console.WriteLine();
         System.Console.WriteLine("--");
         System.Console.WriteLine();
@@ -65,8 +65,6 @@ public class functions
         var listaPersonajes = new List<personaje>();
         personaje personaje;
 
-        Console.Clear();
-
         personaje = setPersonaje(dataArchivoJugadores, dataNames);
 
         listaPersonajes.Add(personaje);
@@ -78,13 +76,19 @@ public class functions
 
         }
 
-        System.Console.WriteLine("La cantidad de peleas es aleatoria entre 1 y 10");
-        System.Console.WriteLine("--");
-
-        int cantidadPeleas = dataRandom.Next(1, 11);
+        int cantidadPeleas = dataRandom.Next(1, 6);
         int cantidadEmpates = 0;
 
-        System.Console.WriteLine($"Cantidad de Peleas: {cantidadPeleas}");
+        Console.Clear();
+        System.Console.WriteLine("--\tINICIO");
+        System.Console.WriteLine();
+        System.Console.WriteLine(" La cantidad de peleas es aleatoria entre 1 y 5");
+        System.Console.WriteLine($" Cantidad de Peleas: {cantidadPeleas}");
+        System.Console.WriteLine();
+        System.Console.WriteLine("--");
+        System.Console.WriteLine();
+        System.Console.WriteLine("Presione una tecla...");
+        char flagTecla = char.ToUpper(Console.ReadKey().KeyChar);
 
         runPelea(dataRandom, listaPersonajes, ref cantidadPeleas, ref cantidadEmpates, dataFlagGuardar, listaJugadores, dataArchivoJugadores, dataNames);
 
@@ -110,6 +114,7 @@ public class functions
     {
         personaje personaje;
 
+        Console.Clear();
         System.Console.WriteLine("--\tELECCION DEL PERSONAJE");
         System.Console.WriteLine();
         System.Console.WriteLine(" Crear o elegir personaje");
@@ -197,40 +202,49 @@ public class functions
 
             }
 
-            System.Console.WriteLine("--");
-            System.Console.WriteLine("--\tPersonajes a luchar:");
+            Console.Clear();
+            System.Console.WriteLine("--\tPERSONAJES A LUCHAR");
+            System.Console.WriteLine();
+
             foreach (var item in dataListaPersonajes)
             {
                 System.Console.WriteLine($" Nombre:\t{item.DataDatos.Nombre}");
-                System.Console.WriteLine($" Alias:\t{item.DataDatos.Alias}");
-                System.Console.WriteLine($" Tipo:\t{item.DataDatos.Tipo}");
+                System.Console.WriteLine($" Alias:\t\t{item.DataDatos.Alias}");
+                System.Console.WriteLine($" Tipo:\t\t{item.DataDatos.Tipo}");
+                System.Console.WriteLine();
+                System.Console.WriteLine("--");
+                System.Console.WriteLine();
 
             }
 
             System.Console.WriteLine("Presione una tecla para comenzar!");
             char flagPresione = Console.ReadKey().KeyChar;
-            System.Console.WriteLine();
-            System.Console.WriteLine("--\tPeleando");
+
             for (int i = 0; i < 3; i++)
             {
-                char flagContinuar;
+
+                Console.Clear();
+                System.Console.WriteLine("--\tPELEANDO");
+                System.Console.WriteLine();
 
                 processPelea(dataListaPersonajes[1], dataListaPersonajes[0]);
-                System.Console.WriteLine("Presione una tecla para continuar");
-                flagContinuar = Console.ReadKey().KeyChar;
-
-                if (dataListaPersonajes[1].DataDatos.Salud <= 0)
+                
+                if (dataListaPersonajes[0].DataDatos.Salud <= 0)
                 {
+                    System.Console.WriteLine();
+                    System.Console.WriteLine("Presione una tecla para continuar");
+                    char flagContinua1 = Console.ReadKey().KeyChar;
                     break;
 
                 }
 
                 processPelea(dataListaPersonajes[0], dataListaPersonajes[1]);
-                System.Console.WriteLine("Presione una tecla para continuar");
-                flagContinuar = Console.ReadKey().KeyChar;
 
-                if (dataListaPersonajes[0].DataDatos.Salud <= 0)
+                if (dataListaPersonajes[1].DataDatos.Salud <= 0)
                 {
+                    System.Console.WriteLine();
+                    System.Console.WriteLine("Presione una tecla para continuar");
+                    char flagContinua2 = Console.ReadKey().KeyChar;
                     break;
 
                 }
@@ -240,8 +254,18 @@ public class functions
                     System.Console.WriteLine("Fin de la pelea!");
 
                 }
-                
+
+                System.Console.WriteLine();
+                System.Console.WriteLine($"Peleas restantes: {dataCantidadPeleas - 1}");
+                System.Console.WriteLine();
+                System.Console.WriteLine("Presione una tecla para continuar");
+                char flagContinua = Console.ReadKey().KeyChar;
+                Console.Clear();
+
             }
+
+
+            
 
             if (dataListaPersonajes[0].DataDatos.Salud == dataListaPersonajes[1].DataDatos.Salud)
             {
@@ -314,8 +338,15 @@ public class functions
 
     public static void processPelea(personaje dataAtacante, personaje dataDefensor)
     {
-        System.Console.WriteLine($"Atacante:\t{dataAtacante.DataDatos.Nombre} {dataAtacante.DataDatos.Alias}");
-        System.Console.WriteLine($"\tDefensor:\t{dataDefensor.DataDatos.Nombre} {dataDefensor.DataDatos.Alias}");
+        System.Console.WriteLine($" Atacante:\t{dataAtacante.DataDatos.Nombre}");
+        System.Console.WriteLine($" \t\tAlias: {dataAtacante.DataDatos.Alias}");
+        System.Console.WriteLine();
+        System.Console.WriteLine();
+        System.Console.WriteLine($" Defensor:\t{dataDefensor.DataDatos.Nombre}");
+        System.Console.WriteLine($" \t\tAlias: {dataDefensor.DataDatos.Alias}");
+        System.Console.WriteLine();
+        System.Console.WriteLine("--");
+        System.Console.WriteLine();
         var random = new Random();
 
         float poderDisparo = dataAtacante.DataCaracteristicas.Destreza * dataAtacante.DataCaracteristicas.Fuerza * dataAtacante.DataCaracteristicas.Nivel;
@@ -325,9 +356,13 @@ public class functions
         float maximoDanio = 50000;
         int danioProvocado = Convert.ToInt32((((valorAtaque * efectividadDisparo) - poderDefensa) / maximoDanio) * 5);
 
-        System.Console.WriteLine($"Danio provocado de {dataAtacante.DataDatos.Alias}: {danioProvocado}");
+        System.Console.WriteLine($"\tDano provocado por {dataAtacante.DataDatos.Alias}: {danioProvocado}");
+        System.Console.WriteLine();
         dataDefensor.DataDatos.Salud -= danioProvocado;
-        System.Console.WriteLine($"Salud de {dataDefensor.DataDatos.Alias}: {dataDefensor.DataDatos.Salud}");;
+        System.Console.WriteLine($"\tSalud de {dataDefensor.DataDatos.Alias}: {dataDefensor.DataDatos.Salud}");
+        System.Console.WriteLine();
+        System.Console.WriteLine("--");
+        System.Console.WriteLine();
 
     }
 
