@@ -144,11 +144,13 @@ public class functions
                 {
                     
                     System.Console.WriteLine($"--\tJUGADOR # {contadorItem + 1}");
+                    System.Console.WriteLine();
                     System.Console.WriteLine($" Nombre:\t{item.DataDatos.Nombre, -30} Alias:\t\t{item.DataDatos.Alias, -30}");
                     System.Console.WriteLine($" Tipo:\t\t{item.DataDatos.Tipo, -30} Salud:\t\t{item.DataDatos.Salud, -30}");
                     System.Console.WriteLine($" Fech. Nac.:\t{item.DataDatos.FechaNacimiento, -30} Edad:\t\t{item.DataDatos.Edad, -30}");
                     System.Console.WriteLine($" Velocidad:\t{item.DataCaracteristicas.Velocidad, -30} Destreza:\t{item.DataCaracteristicas.Destreza, -30}");
                     System.Console.WriteLine($" Fuerza:\t{item.DataCaracteristicas.Fuerza, -10} Nivel:\t{item.DataCaracteristicas.Nivel, -6} Armadura:\t{item.DataCaracteristicas.Armadura, -20}");
+                    System.Console.WriteLine();
                     System.Console.WriteLine("--");
                     System.Console.WriteLine();
 
@@ -345,6 +347,7 @@ public class functions
         System.Console.WriteLine($" Fech. Nac.:\t{dataListaPersonajes[0].DataDatos.FechaNacimiento, -30} Edad:\t\t{dataListaPersonajes[0].DataDatos.Edad, -30}");
         System.Console.WriteLine($" Velocidad:\t{dataListaPersonajes[0].DataCaracteristicas.Velocidad, -30} Destreza:\t{dataListaPersonajes[0].DataCaracteristicas.Destreza, -30}");
         System.Console.WriteLine($" Fuerza:\t{dataListaPersonajes[0].DataCaracteristicas.Fuerza, -10} Nivel:\t{dataListaPersonajes[0].DataCaracteristicas.Nivel, -6} Armadura:\t{dataListaPersonajes[0].DataCaracteristicas.Armadura, -20}");
+        System.Console.WriteLine();
         System.Console.WriteLine("--");
         System.Console.WriteLine();
         System.Console.WriteLine("Presione una tecla para continuar...");
