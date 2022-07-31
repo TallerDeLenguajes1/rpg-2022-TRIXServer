@@ -10,16 +10,14 @@ names = functions.populateNamesApi(names);
 do
 {
     System.Console.Clear();
-    System.Console.WriteLine("--\tRPG");
-    System.Console.WriteLine();
-    System.Console.WriteLine(" L - Listado de ganadores");
-    System.Console.WriteLine(" E - Enfrentamientos");
-    System.Console.WriteLine();
-    System.Console.WriteLine(" S - Salir");
-    System.Console.WriteLine();
-    System.Console.WriteLine("--");
-    System.Console.WriteLine();
-    System.Console.Write("Elije una opcion: ");
+    System.Console.WriteLine("+--\tRPG");
+    System.Console.WriteLine("|\n| L - Listado de ganadores");
+    System.Console.WriteLine("| E - Enfrentamientos");
+    System.Console.WriteLine("|");
+    System.Console.WriteLine("| S - Salir");
+    System.Console.WriteLine("|");
+    System.Console.WriteLine("+--");
+    System.Console.Write("|\n| Elije una opcion: ");
     char flagInicio = char.ToUpper(Console.ReadKey().KeyChar);
     System.Console.WriteLine();
 
@@ -39,16 +37,14 @@ do
         else
         {
             Console.Clear();
-            System.Console.WriteLine("--\tENFRENTAMIENTOS");
-            System.Console.WriteLine();
-            System.Console.WriteLine(" Guardar informacion de los luchadores?");
-            System.Console.WriteLine();
-            System.Console.WriteLine(" S - Si");
-            System.Console.WriteLine(" N - No");
-            System.Console.WriteLine();
-            System.Console.WriteLine("--");
-            System.Console.WriteLine();
-            System.Console.Write("Elije una opcion: ");
+            System.Console.WriteLine("+--\tENFRENTAMIENTOS");
+            System.Console.WriteLine("|\n| Guardar informacion de los luchadores?");
+            System.Console.WriteLine("|");
+            System.Console.WriteLine("| S - Si");
+            System.Console.WriteLine("| N - No");
+            System.Console.WriteLine("|");
+            System.Console.WriteLine("+--");
+            System.Console.Write("|\n| Elije una opcion: ");
             char flagGuardar = char.ToUpper(Console.ReadKey().KeyChar);
             System.Console.WriteLine();
             functions.enfrentamiento(archivoGanadores, random, flagGuardar, archivoJugadores, names);
