@@ -335,14 +335,6 @@ public class functions
 
     public static void processPelea(personaje dataAtacante, personaje dataDefensor)
     {
-        System.Console.WriteLine($"|\n| Atacante:\t{dataAtacante.DataDatos.Nombre}");
-        System.Console.WriteLine($"| \t\t-- {dataAtacante.DataDatos.Alias} --");
-        System.Console.WriteLine("|");
-        System.Console.WriteLine("|");
-        System.Console.WriteLine($"| Defensor:\t{dataDefensor.DataDatos.Nombre}");
-        System.Console.WriteLine($"| \t\t-- {dataDefensor.DataDatos.Alias} --");
-        System.Console.WriteLine("|");
-        System.Console.WriteLine("+--");
         var random = new Random();
 
         float poderDisparo = dataAtacante.DataCaracteristicas.Destreza * dataAtacante.DataCaracteristicas.Fuerza * dataAtacante.DataCaracteristicas.Nivel;
@@ -351,16 +343,23 @@ public class functions
         float poderDefensa = dataDefensor.DataCaracteristicas.Armadura * dataDefensor.DataCaracteristicas.Velocidad;
         float maximoDanio = 50000;
         int danioProvocado = Convert.ToInt32((((valorAtaque * efectividadDisparo) - poderDefensa) / maximoDanio) * 5);
-
-        System.Console.WriteLine($"| \tDaño provocado por {dataAtacante.DataDatos.Alias, -10} {danioProvocado, -5}");
-        System.Console.WriteLine("|");
+        
         dataDefensor.DataDatos.Salud -= danioProvocado;
         if (dataDefensor.DataDatos.Salud <= 0)
         {
             dataDefensor.DataDatos.Salud = 0;
         }
-        System.Console.WriteLine($"| \tSalud de {dataDefensor.DataDatos.Alias, -20} {dataDefensor.DataDatos.Salud, -5}");
-        System.Console.WriteLine("+--");
+
+        System.Console.WriteLine($"| \n|    +----------+\n| <<<| ATACANTE |>>> \t{dataAtacante.DataDatos.Nombre, -30} {"Daño provocado: ", -20} {danioProvocado, 5} >>>");
+        System.Console.WriteLine($"|    +----------+\t-- {dataAtacante.DataDatos.Alias} --");
+        System.Console.WriteLine("|");
+        System.Console.WriteLine("| \t\t\t   | | |");
+        System.Console.WriteLine("| \t\t\t   V V V");
+        System.Console.WriteLine($"|    +----------+");
+        System.Console.WriteLine($"| >>>| DEFENSOR |<<< \t{dataDefensor.DataDatos.Nombre, -30} {"Salud: ", -20} {dataDefensor.DataDatos.Salud, 5} <<<");
+        System.Console.WriteLine($"|    +----------+\t-- {dataDefensor.DataDatos.Alias} --");
+        System.Console.WriteLine("|");
+        System.Console.WriteLine($"+--");
 
     }
 
