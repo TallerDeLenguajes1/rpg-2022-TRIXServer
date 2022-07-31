@@ -350,13 +350,13 @@ public class functions
             dataDefensor.DataDatos.Salud = 0;
         }
 
-        System.Console.WriteLine($"| \n|    +----------+\n| <<<| ATACANTE |>>> \t{dataAtacante.DataDatos.Nombre, -30} {"Daño provocado: ", -20} {danioProvocado, 5} >>>");
+        System.Console.WriteLine($"| \n|    +----------+\n| <<<| ATACANTE |>>> \t{dataAtacante.DataDatos.Nombre, -30} {"-=[ Daño provocado: ", -20} {danioProvocado, 5} ]=-");
         System.Console.WriteLine($"|    +----------+\t-- {dataAtacante.DataDatos.Alias} --");
         System.Console.WriteLine("|");
         System.Console.WriteLine("| \t\t\t   | | |");
         System.Console.WriteLine("| \t\t\t   V V V");
         System.Console.WriteLine($"|    +----------+");
-        System.Console.WriteLine($"| >>>| DEFENSOR |<<< \t{dataDefensor.DataDatos.Nombre, -30} {"Salud: ", -20} {dataDefensor.DataDatos.Salud, 5} <<<");
+        System.Console.WriteLine($"| >>>| DEFENSOR |<<< \t{dataDefensor.DataDatos.Nombre, -30} {"-=[ Salud: ", -20} {dataDefensor.DataDatos.Salud, 5} ]=-");
         System.Console.WriteLine($"|    +----------+\t-- {dataDefensor.DataDatos.Alias} --");
         System.Console.WriteLine("|");
         System.Console.WriteLine($"+--");
