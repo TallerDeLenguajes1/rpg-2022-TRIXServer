@@ -221,6 +221,8 @@ public class functions
                 System.Console.WriteLine("├──");
                 System.Console.WriteLine("│");
                 System.Console.WriteLine("│ EMPATE!!, volveran a pelear");
+                System.Console.WriteLine("│");
+                System.Console.Write("└── Presione una tecla para comenzar!");
                 char flagContinua3 = Console.ReadKey().KeyChar;
                 dataCantidadEnfrentamientos++;
 
